@@ -7,7 +7,7 @@
  * # AboutCtrl
  * Controller of the deployAngularJstoGithubPagesApp
  */
-angular.module('deployAngularJstoGithubPagesApp')
+angular.module('helloApp')
   .controller('AboutCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',

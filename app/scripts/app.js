@@ -1,15 +1,7 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name deployAngularJstoGithubPagesApp
- * @description
- * # deployAngularJstoGithubPagesApp
- *
- * Main module of the application.
- */
 angular
-  .module('deployAngularJstoGithubPagesApp', [
+  .module('helloApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
