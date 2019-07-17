@@ -9,7 +9,12 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
+  .config(function ($locationProvider) {
+    $locationProvider.html5Mode(true);
+  })
   .config(function ($routeProvider) {
+    var site_prefix='/hello';
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -21,7 +26,17 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-      .otherwise({
+      .when('/todo', {
+        templateUrl: 'views/todo.html',
+        controller: 'TodoCtrl',
+        controllerAs: 'todo'
+      })
+      .when(site_prefix + '/todo', {
+        templateUrl: 'views/todo.html',
+        controller: 'TodoCtrl',
+        controllerAs: 'todo'
+      })
+        .otherwise({
         redirectTo: '/'
       });
   });
