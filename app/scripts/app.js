@@ -16,12 +16,7 @@ angular
     var site_prefix='/hello';
 
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when(site_prefix + '/', {
+     .when(site_prefix + '/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
@@ -31,17 +26,27 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+     .when(site_prefix + '/todo', {
+        templateUrl: 'views/todo.html',
+        controller: 'TodoCtrl',
+        controllerAs: 'todo'
+      })
+      .when('/', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main'
+      })
       .when('/todo', {
         templateUrl: 'views/todo.html',
         controller: 'TodoCtrl',
         controllerAs: 'todo'
       })
-      .when(site_prefix + '/todo', {
-        templateUrl: 'views/todo.html',
-        controller: 'TodoCtrl',
-        controllerAs: 'todo'
+      .when('/about', {
+        templateUrl: 'views/about.html',
+        controller: 'AboutCtrl',
+        controllerAs: 'about'
       })
-        .otherwise({
+      .otherwise({
         redirectTo: '/'
       });
   });
