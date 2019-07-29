@@ -9,10 +9,7 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($locationProvider) {
-    $locationProvider.html5Mode(true);
-  })
-  .config(function ($routeProvider) {
+  .config(function ($locationProvider, $routeProvider) {
     var site_prefix='/hello';
 
     $routeProvider
@@ -49,4 +46,5 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+      $locationProvider.html5Mode(true);
   });

@@ -1,1 +1,20 @@
-<p>This is the todo view.</p>
+
+<div class="jumbotron jumbotron-fluid">
+        <div class= "container">
+        <div class="block">
+          <h1 class="animated fadeInUp">{{titleIntro}}</h1>
+          <p class="animated fadeInUp">{{titleDesc}}</p>
+        </div>
+        </div>
+</div>
+
+<div class="container">
+    <p>This is the todo view.</p>
+
+    <ul>
+        <li ng-repeat=" todo in todoList">
+            {{todo}}
+        </li>
+    </ul>
+
+</div>
