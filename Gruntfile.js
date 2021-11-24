@@ -10,7 +10,12 @@
 module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-build-control');
+  
+  var serveStatic = require('serve-static'); 
+
   require('./package.json');
+
+  //grunt.loadNpmTasks('grunt-contrib-jade');
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
@@ -75,7 +80,7 @@ module.exports = function (grunt) {
       options: {
         port: 9000,
         // Change this to '0.0.0.0' to access the server from outside.
-        hostname: 'localhost',
+        hostname: '0.0.0.0',
         livereload: 35729
       },
       livereload: {
@@ -83,16 +88,16 @@ module.exports = function (grunt) {
           open: true,
           middleware: function (connect) {
             return [
-              connect.static('.tmp'),
+              serveStatic('.tmp'),
               connect().use(
                 '/bower_components',
-                connect.static('./bower_components')
+                serveStatic('./bower_components')
               ),
               connect().use(
                 '/app/styles',
-                connect.static('./app/styles')
+                serveStatic('./app/styles')
               ),
-              connect.static(appConfig.app)
+              serveStatic(appConfig.app)
             ];
           }
         }
@@ -390,6 +395,17 @@ module.exports = function (grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
+
+        }, { 
+          expand: true,
+          cwd: 'bower_components/components-font-awesome', 
+          src: 'fonts/*', 
+          dest: '<%= yeoman.dist %>' 
+        }, {
+          expand: true,
+          cwd: 'bower_components/ionicons-min', 
+          src: 'fonts/*', 
+          dest: '<%= yeoman.dist %>' 
         }, {
           expand: true,
           cwd: 'bower_components/bootstrap/dist',
@@ -450,6 +466,7 @@ module.exports = function (grunt) {
     }
   });
 
+//  grunt.file.setBase('./')
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -465,6 +482,8 @@ module.exports = function (grunt) {
       'watch'
     ]);
   });
+
+    
 
   grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
