@@ -9,8 +9,10 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
+  .constant('_', window._)
   .config(function ($locationProvider, $routeProvider) {
-    var site_prefix='/hello';
+
+   var site_prefix='/hello';
 
     $routeProvider
      .when(site_prefix + '/', {

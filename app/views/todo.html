@@ -9,111 +9,21 @@
 </div>
 
 <div class="container">
-    <p>This is the todo view.</p>
-
+ <h2>You've got <span class="emphasis">{{getTotalTodos()}}</span> things to do</h2>
     <ul>
-        <li ng-repeat=" todo in todoList">
-            {{todo}}
+        <li ng-repeat="todo in todos track by $index">
+           <input type="checkbox" ng-model="todo.done"/> <span class="done-{{todo.done}}"> {{todo.text}} </span>
         </li>
     </ul>
 
 </div>
 
+<div class="container">
 
-<section id="portfolio-work">
-    <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="block">
-              <div class="portfolio-menu">
-                <ul>
-                    <li class="filter" data-filter="all">Everything</li>
-                    <li class="filter" data-filter=".Branding">Branding</li>
-                    <li class="filter" data-filter=".Websites">Websites</li>
-                    <li class="filter" data-filter=".Graphic">Graphic</li>
-                    <li class="filter" data-filter=".design">design</li>
-                    <li class="filter active" data-filter=".Video">Video</li>
-                </ul>
-              </div>
-              <div class="portfolio-contant">
-                <ul id="portfolio-contant-active">
-                    <li class="mix Branding">
-                      <a href="#">
-                        <img src="/img/portfolio/work1.jpg" alt="">
-                        <div class="overly">
-                          <div class="position-center">
-                            <h2>Tesla Motors</h2>
-                            <p>Labore et dolore magna aliqua. Ut enim ad </p>
-
-                          </div>
-                        </div>
-                      </a>
-                  </li>
-                  <li class="mix Websites">
-                    <a href="#">
-                      <img src="/img/portfolio/work2.jpg" alt="">
-                      <div class="overly">
-                        <div class="position-center">
-                          <h2>Tesla Motors</h2>
-                          <p>Labore et dolore magna aliqua. Ut enim ad </p>
-
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="mix Graphic">
-                    <a href="#">
-                      <img src="/img/portfolio/work3.jpg" alt="">
-                      <div class="overly">
-                        <div class="position-center">
-                          <h2>Tesla Motors</h2>
-                          <p>Labore et dolore magna aliqua. Ut enim ad </p>
-
-                        </div>
-                      </div>
-
-                    </a>
-                  </li>
-                  <li class="mix design">
-                    <a href="#">
-                      <img src="/img/portfolio/work4.jpg" alt="">
-                      <div class="overly">
-                        <div class="position-center">
-                          <h2>Tesla Motors</h2>
-                          <p>Labore et dolore magna aliqua. Ut enim ad </p>
-
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="mix Video" style="display: inline-block;">
-                    <a href="#">
-                      <img src="/img/portfolio/work5.jpg" alt="">
-                      <div class="overly">
-                        <div class="position-center">
-                          <h2>Tesla Motors</h2>
-                          <p>Labore et dolore magna aliqua. Ut enim ad </p>
-
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="mix Graphic">
-                    <a href="#">
-                      <img src="/img/portfolio/work6.jpg" alt="">
-                      <div class="overly">
-                        <div class="position-center">
-                          <h2>Tesla Motors</h2>
-                          <p>Labore et dolore magna aliqua. Ut enim ad </p>
-
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-    </div>
-</section>
+      <form>
+        <input class="add-input" placeholder="I need to..." type="text" ng-model="formTodoText" ng-model-instant />
+        <button class="add-btn" ng-click="addTodo()"><h2>Add</h2></button>
+      </form>
+      
+      <button class="clear-btn" ng-click="clearCompleted()">Clear completed</button>
+</div>
