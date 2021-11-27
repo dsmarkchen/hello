@@ -9,6 +9,7 @@
 </div>
 
 <div class="container">
+<div class="todo-wrapper">
  <h2>You've got <span class="emphasis">{{getTotalTodos()}}</span> things to do</h2>
     <ul>
         <li ng-repeat="todo in todos track by $index">
@@ -17,6 +18,8 @@
     </ul>
 
 </div>
+</div>
+
 
 <div class="container">
 
@@ -27,3 +30,4 @@
       
       <button class="clear-btn" ng-click="clearCompleted()">Clear completed</button>
 </div>
+

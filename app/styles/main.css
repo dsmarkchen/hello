@@ -58,6 +58,16 @@ body {
 .marketing p + h4 {
   margin-top: 28px;
 }
+.todo-wrapper {
+  background: #55B6AE;
+  width: 100%;
+}
+
+.emphasis {
+  font-family: sans-serif;
+  font-size: 4em;
+}
+
 .add-input {
   width: 60%;
   height: 20px;
